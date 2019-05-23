@@ -8,8 +8,16 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
   
   function firstItem(arr, cb) {
     // firstItem passes the first item of the given array to the callback function.
-  }
+  }*/
+//My solution:
+//   function firstItem(arr,cb){
+//   return cb(arr[0]);
+// };
 
+// firstItem(items,function(first){
+// console.log(first);});
+
+/*
   // Potential Solution:
 
   // Higher order function using "cb" as the call back
@@ -24,18 +32,32 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 */
 
+//My Solution:
+// function getLength(arr, cb) {
+//  // getLength passes the length of the array into the callback.
+//   return cb(arr.length);
+// }
+// getLength(items,function(length){
+//       console.log(length);
+// });
 
-function getLength(arr, cb) {
-  // getLength passes the length of the array into the callback.
-}
+// function last(arr, cb) {
+//   // last passes the last item of the array into the callback.
+//   return cb(arr.pop())
+// }
+// last(items,function(final){
+//   console.log(final);
+// });
 
-function last(arr, cb) {
-  // last passes the last item of the array into the callback.
-}
 
-function sumNums(x, y, cb) {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
-}
+// function sumNums(x, y, cb) {
+//   // sumNums adds two numbers (x, y) and passes the result to the callback.
+//   return cb(x+y);
+// }
+// sumNums(2,3, function(sum){
+//     console.log(sum);
+// });
+
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
