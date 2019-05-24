@@ -81,9 +81,16 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 
 /* STRETCH PROBLEM */
-
+duplicates=[4,5,8,7,8,1,1,2,"was","was",2,3,3,4,4]
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  return cb(array.sort().filter((v,i)=>(array.indexOf(v)===i)));
 }
+//In above function: filter(v is for value of item in array, i is for index of item in array.)  .indexOf( Is used to find first instance of a value in an array or string. Can have second argument to represent starting place in array/string but defaults to the beginning.)
+
+let dedupe=function(had){
+  console.log(had);}
+
+removeDuplicates(duplicates,dedupe);
