@@ -49,7 +49,7 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 //   console.log(final);
 // });
 
-// //My Solution
+// //My Solution:
 // function sumNums(x, y, cb) {
 //   // sumNums adds two numbers (x, y) and passes the result to the callback.
 //   return cb(x+y);
@@ -58,7 +58,7 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 //     console.log(sum);
 // });
 
-// //My Solution
+// //My Solution:
 // function multiplyNums(x, y, cb) {
 //   // multiplyNums multiplies two numbers and passes the result to the callback.
 //   return cb(x*y)
@@ -68,11 +68,18 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 //   console.log(times);
 // });
 
-function contains(item, list, cb) {
-  // contains checks if an item is present inside of the given array/list.
-  // Pass true to the callback if it is, otherwise pass false.
-  //return cb(list.filter(list.item))
-}
+// //My Solution:
+// function contains(item, list, cb) {
+//   // contains checks if an item is present inside of the given array/list.
+//   // Pass true to the callback if it is, otherwise pass false.
+//   return cb(list.filter(pops=>pops===item));
+// }
+
+// contains('Notebook', items, function(has){
+//   console.log(has);
+// }); 
+
+
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {
