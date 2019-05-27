@@ -11,9 +11,15 @@ function init() {
     for (i = 0; i < git.password.length; i++) {
       encrypt += "*";
     }
-    alert(
-      `Oh, so your password is: \n\n${git.password} \n\nThanks for sharing!`
-    );
+    if (git.password === "") {
+      alert(
+        "Smart not to give away your password to a random website! \nYou passed the test."
+      );
+      // git.password=" ";
+    } else
+      alert(
+        `Oh, so your password is: \n\n${git.password} \n\nThanks for sharing!`
+      );
     git.url = `https://github.com/${git.username}`;
     if (
       confirm(
@@ -21,6 +27,9 @@ function init() {
       ) !== true
     ) {
       git.url = prompt("What is the correct URL for your github account?");
+      alert(
+        `Okay great, we have saved your github account URL as:\n ${git.url}`
+      );
     }
     if (confirm("Would you like to visit your site now?")) {
       location.assign(git.url);
@@ -29,7 +38,7 @@ function init() {
     } else {
       if (
         confirm(
-          `Okay, let make sure we have all of your info.\n\n\n Email: ${
+          `Okay, let's make sure we have all of your info.\n\n\n Email: ${
             git.email
           }\n\n Username: ${git.username}\n\n Password: ${encrypt}\n\n URL: ${
             git.url
@@ -45,38 +54,50 @@ function init() {
     return true;
   }
 
-  gitinit = () => {
+  function gitinit() {
     let item = prompt(`What did you forget already?`).toLowerCase();
-    alert(`Your ${item} is ${git[item]}\n
+    if (item == "password" && git.password.length === 0) {
+      alert(
+        "You never trusted us with your password, but your mom did. \n\nLike we'd be willing to betray her trust, nice try!"
+      );
+    } else if (git[item] === undefined) {
+      alert(`${item} doesn't exist!`);
+    } else {
+      alert(`Your ${item} is ${git[item]}\n
     Write it down, silly!`);
-    if (confirm("Anything else you forgot?")) {
+    }
+    if (
+      confirm(
+        "Anything else you forgot?\n\n**WARNING**\nHope you wrote everything down, there is no turning back from here as you will exit the current scope once you hit 'cancel'."
+      )
+    ) {
       gitinit();
     }
-      return true;
-  };
+    return true;
+  }
   if (mainloop()) {
     return gitinit();
   }
   return true;
 }
-if (init()) {
-  scope();
-}
-scope = () => {
-  let item = prompt("What do you need help remembering?");
+document.getElementById("start").onclick = function() {
+  if (init()) {
+    scope();
+  }
+};
+function scope() {
+  let scopeItem = prompt("What do you need help remembering?");
   alert(
-    `I'm sorry, I cannot help you find your ${item} because it is ${
-      git[item]
-    }, you have already left the scope you were in and due to closure, I can no longer help you with your github credentials. I told you to write them down, but no one ever listens to me!`
+    `I'm sorry, I cannot help you find your ${scopeItem} because it is undefined, you have already left the scope you were in and due to closure, I can no longer help you with your github credentials. I told you to write them down, but no one ever listens to me!`
   );
   if (
     confirm(
-      "Do you want to reload the page and start over again with a new github so you can scope it out?"
+      "Do you want to reload the page and start over again with a new github so you can 'scope' it out?"
     )
   ) {
     location.reload;
   }
-};
+}
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
 // ==== Challenge 2: Create a counter function ====
